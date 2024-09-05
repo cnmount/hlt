@@ -154,7 +154,7 @@ const Product = ({ pizza }) => {
   );
 };
 
-export async function getStaticProps({ params }) {
+/*export async function getStaticProps({ params }) {
   const url = 'http://localhost:3000';;
   const res = await axios.get(`${url}/api/products/${params.id}`);
 
@@ -163,7 +163,7 @@ export async function getStaticProps({ params }) {
       pizza: res.data,
     },
   };
-}
+}*/
 
 export async function getStaticPaths() {
   const url = 'http://localhost:3000';;
