@@ -12,7 +12,7 @@ const Dashboard = () => {
   const router = useRouter();
 
   // 检查用户是否已登录
-  useEffect(() => {
+  /*useEffect(() => {
     if (typeof window !== "undefined") {
       if (localStorage.getItem("user") == "undefined") {
         router.push("/admin/login");
@@ -20,7 +20,7 @@ const Dashboard = () => {
         fetchUserData();
       }
     }
-  }, [router]);
+  }, [router]);*/
 
   // 获取用户信息和订单
   const fetchUserData = async () => {
