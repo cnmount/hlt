@@ -1,6 +1,11 @@
 // pages/map.js
 import React from 'react';
-import LeafletMapPage from '../../components/LeafletMapPage.js'; // 确保路径正确
+import dynamic from 'next/dynamic'
+//import LeafletMapPage from '../../components/LeafletMapPage.js'; // 确保路径正确
+
+const LeafletMapPage = dynamic(() => import('../../components/LeafletMapPage.js'), {
+  ssr: false,
+  });
 
 const MapPage = () => {
   return (

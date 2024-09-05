@@ -1,4 +1,4 @@
-/*import React from 'react';
+import React from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
@@ -9,7 +9,7 @@ const customIcon = new L.Icon({
   iconSize: [32, 32], // 图标大小
   iconAnchor: [16, 32], // 图标在地图上的锚点
   popupAnchor: [0, -32], // 弹出框相对于图标的位置
-});*/
+});
 
 // 地图中心位置
 const center = {
@@ -48,11 +48,11 @@ const LeafletMapPage = () => {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      /*{locations.map((location) => (
+      {locations.map((location) => (
         <Marker key={location.id} position={location.position} icon={customIcon}>
           <Popup>{location.name}</Popup>
         </Marker>
-      ))}*/
+      ))}
     </MapContainer>
   );
 };
