@@ -26,7 +26,7 @@ export default function Home({ pizzaList }) {
   );
 }
 
-/*export async function getStaticProps() {
+export async function getStaticProps() {
   
   const url = 'http://localhost:3000';
 
@@ -37,4 +37,4 @@ export default function Home({ pizzaList }) {
       pizzaList: res.data.products,
     },
   };
-}*/
+}

@@ -12,13 +12,13 @@ const Admin = ({ orders }) => {
 
   const router = useRouter();
 
-  /*useEffect(() => {
+  useEffect(() => {
     if (typeof window !== "undefined") {
 		localStorage.getItem("admin") === "true"
 		  ? null
 		  : router.push("/admin/login");
 	}
-  },[router]);*/
+  },[router]);
 
   const handleStatus = async (id) => {
     const item = orderList.filter((order) => order._id === id)[0];

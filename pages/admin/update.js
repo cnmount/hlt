@@ -16,13 +16,13 @@ const AdminUpdate = ({ products }) => {
 
   const router = useRouter();
 
-  /*useEffect(() => {
+  useEffect(() => {
 	  if (typeof window !== "undefined") {
 		localStorage.getItem("admin") === "true"
 		  ? null
 		  : router.push("/admin/login");
 	  }
-  },[router]);*/
+  },[router]);
 
   const url = 'http://localhost:3000';;
 

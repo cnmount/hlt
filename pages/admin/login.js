@@ -17,12 +17,12 @@ const Login = () => {
   //   router.push('/admin')
   // }
   
-  /*useEffect(() => {
+  useEffect(() => {
 	if (typeof window !== 'undefined') {
 		localStorage.getItem('admin') === 'true' ? router.push('/admin') : null
 		localStorage.getItem('user') != null ? router.push("/dashboard") : null
 	}
-  },[router]);*/
+  },[router]);
   
   const handleRegister = () => {
     router.push("/admin/register"); // 假设注册页面的路径是 /register
