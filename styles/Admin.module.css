@@ -1,0 +1,181 @@
+.container {
+  padding: 10px 50px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 100px;
+}
+
+.item {
+  width: 100%;
+  
+}
+
+.updateContainer {
+  margin-top: 130px;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+/* .item {
+    flex: 1;
+  } */
+
+.table {
+  width: 100%;
+  border-spacing: 20px;
+  text-align: left;
+}
+
+.updateTrTitle > td:nth-child(3) {
+  width: 250px
+}
+
+.updateTable {
+  padding-left: 40px;
+}
+
+.button {
+  border: none;
+  color: white;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 2px;
+  border: 1px solid black;
+  font-family:
+  -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    width: 50px;
+}
+
+.button_stage {
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #d1411e;
+  color: white;
+  
+  /* transition: all 0.2s ease-in-out; */
+  /* font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
+    width: 100px;
+    height: 35px;
+    font-size: 14px;
+    
+}
+
+.button_stage:hover {
+  color: #d1411e;
+  background-color: white;
+}
+
+.button_deleteOrder {
+  width: 70px;
+    height: 35px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+    color: white;
+    background-color: black;
+    border: 1px dashed black;
+    /* transition: all .2s ease-in-out; */
+}
+
+.button_deleteOrder:hover {
+  background-color: white;
+  color:black;
+}
+
+.actionButtons {
+display: flex;
+}
+
+.button {
+font-weight: 700;
+  border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+width: 50%
+}
+
+.button:first-child {
+/* display: flex;
+align-items: center; */
+  background-color: teal;
+  margin-right: 5px;
+}
+
+.button:first-child:hover {
+  color: teal;
+  background-color: white;
+}
+
+.button:last-child {
+  margin-top: 5px;
+  background-color: crimson;
+}
+
+.button:last-child:hover {
+  color: crimson;
+  background-color: white;
+}
+
+.title {
+  text-align: center;
+}
+
+.titleContainer {
+  display: block;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.trTitle > th:last-child {
+  text-align:justify;
+}
+
+.extras {
+  display: flex;
+  flex-direction: column;
+}
+
+.updatePageLink {
+  background-color: #18cc81;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px black solid;
+  font-size: 14px;
+  font-family: inherit;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+
+.updatePageLink:hover {
+  background-color: black;
+  color: #18cc81;
+  border-color: #18cc81;
+}
+
+.logout {
+  background-color: #1824cc;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px black solid;
+  font-size: 14px;
+  font-family: inherit;
+  font-weight: bold;
+  color: white;
+  transition: all 0.3s ease-in-out;
+  margin-left: 10px;
+}
+
+.logout:hover {
+  background-color: white;
+  color: #1824cc;
+  border-color: #1824cc;
+}
+
+@media screen and (max-width: 376px) {
+ 
+}

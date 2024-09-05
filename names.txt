@@ -1,0 +1,21 @@
+ 驱动器 D 中的卷是 Project
+ 卷的序列号是 C14D-581B
+
+ D:\project\healthylunch 的目录
+
+2024/09/02  13:10    <DIR>          .
+2024/09/02  13:10    <DIR>          ..
+2024/09/02  12:42           177,172 celqpqn6q0pvhuilljnb.webp
+2024/09/02  13:07    <DIR>          components
+2024/09/02  12:42           122,634 flzpydaeabzii5wiyphc.png
+2024/09/02  13:07    <DIR>          models
+2024/09/02  13:10                 0 names.txt
+2024/09/02  12:42                88 next.config.js
+2024/09/02  13:07    <DIR>          pages
+2024/09/02  13:07    <DIR>          public
+2024/09/02  12:42             1,608 README.md
+2024/09/02  13:07    <DIR>          redux
+2024/09/02  13:07    <DIR>          styles
+2024/09/02  13:07    <DIR>          util
+               5 个文件        301,502 字节
+               9 个目录 48,781,754,368 可用字节

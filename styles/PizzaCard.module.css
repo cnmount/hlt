@@ -1,0 +1,63 @@
+.container {
+    width: 22%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 40px;
+    cursor: pointer;
+}
+
+.container:hover{
+    background-color: #2b2828;
+}
+
+.container:hover 
+.price {
+    color: white
+}
+
+.container:hover 
+.desc {
+    color: whitesmoke
+}
+
+.title {
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(168, 40, 40)
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #666;
+}
+
+.desc {
+    text-align: center;
+    color: #777;
+}
+
+@media screen and (max-width: 376px) {
+    .container {
+      width: 90%;
+      margin-top: -30px;
+      margin-bottom: 30px;
+    }
+  
+    .title {
+      font-size: 22px;
+      text-align: center;
+    }
+  
+    
+    .desc {
+      font-size: 16px;
+      margin-top: -10px;
+      margin-bottom: 20x;
+    }
+
+    
+  }

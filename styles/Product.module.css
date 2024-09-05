@@ -1,0 +1,253 @@
+.container {
+    height: 100vh;
+    display: flex;
+    margin-top: 20px;
+}
+
+.left {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.right {
+    flex: 1;
+    padding: 20px;
+    margin-top: 120px;
+}
+
+.imgContainer {
+    position: relative;
+    width: 65%;
+    height: 65%;
+}
+
+.title {
+  color: rgb(168, 40, 40);
+}
+
+.price {
+    color: #d1411e;
+    font-size: 24px;
+    font-weight: 400;
+    /* border-bottom: 1px solid #d1411e; */
+}
+
+.sizes {
+    display: flex;
+    width: 40%;
+    justify-content: space-between;
+}
+
+.size {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    cursor: pointer;
+}
+
+.size:nth-child(2) {
+    width: 40px;
+    height: 40px;
+}
+
+.size:nth-child(3) {
+    width: 50px;
+    height: 50px;
+}
+
+.highlight {
+  background-color: red;
+  border-radius: 50%;
+}
+
+.number {
+    position: absolute;
+    top: -5px;
+    right: -20px;
+    background-color: teal;
+    color: white;
+    font-size: 12px;
+    padding: 0 5px;
+    border-radius: 10px;
+}
+
+.basePrice {
+  position: absolute;
+  bottom: -20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.ingredients {
+    display: flex;
+    margin-bottom: 30px;
+    margin-left: -3px;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.checkbox {
+    width: 20px;
+    height: 20px;
+}
+
+.quantity {
+    width: 50px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 2px;   
+    margin-top: -5px;
+}
+
+.button {
+    height: 30px;
+    margin-left: 10px;
+    background-color: #d1411e;
+    color: white;
+    border: .5px solid black;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all .2s ease-in-out;
+    font-family: inherit;
+}
+
+.button:hover {
+  background-color: white;
+  color: red
+}
+
+.altNavButtons{
+  margin: 0;
+  margin-top: 10px;
+  
+
+}
+
+.cartButton,
+.menuButton {
+  margin-left: -50px;
+  font-family: inherit
+}
+
+.cartButton {
+  height: 30px;
+  margin-left: 10px;
+  background-color: white;
+  color: #d1411e;
+  border: .5px solid black;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 80px;
+  transition: all .2s ease-in-out;
+  
+}
+
+.cartButton:hover {
+background-color: #d1411e;
+color: white
+}
+
+.cartButton:disabled {
+  display: none;
+}
+
+.menuButton {
+  height: 30px;
+  margin-left: 10px;
+  background-color: white;
+  color: #d1411e;
+  border: .5px solid black;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 80px;
+  transition: all .2s ease-in-out;
+  
+}
+
+.menuButton:hover {
+background-color: #d1411e;
+color: white
+}
+
+.addMessage {
+  padding: 10px 0;
+  font-weight: 500;
+  color: #d1411e;
+}
+
+.additional {
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+
+
+@media screen and (max-width: 480px) {
+    .container {
+      height: auto;
+      text-align: center;
+      flex-direction: column;
+      margin-top: 150px;
+    }
+  
+    .imgContainer {
+      width: 65vw;
+      height: 65vw;
+      margin-bottom: -130px;
+    }
+  
+    .title {
+        font-size: 24px;
+    }
+  
+    .price {
+      border: 2px dashed black;
+      padding: 5px 10px;
+      font-size: 18px;
+      border-radius: 5px;
+    }
+
+    .sizes {
+      width: 100%;
+      padding: 0px 20px;
+    }
+  
+    .ingredients {
+      flex-direction: column;
+    }
+  
+    .option {
+      margin: 10px;
+      font-size: 16px;
+    }
+  
+    .checkbox {
+      width: 20px;
+      height: 20px;
+    }
+
+    .button {
+      height: 40px;
+      padding: 10px 20px;
+    }
+    .quantity {
+      width: 40px;
+    }
+
+    .additional {
+      margin-top: 40px;
+      margin-bottom: -5px;
+    }
+  }
