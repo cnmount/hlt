@@ -1,7 +1,7 @@
 import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import AddButton from "../../components/AddButton";
 import AddProduct from "../../components/AddProduct";
@@ -16,11 +16,13 @@ const AdminUpdate = ({ products }) => {
 
   const router = useRouter();
 
-  if (typeof window !== "undefined") {
-    localStorage.getItem("admin") === "true"
-      ? null
-      : router.push("/admin/login");
-  }
+  useEffect(() => {
+	  if (typeof window !== "undefined") {
+		localStorage.getItem("admin") === "true"
+		  ? null
+		  : router.push("/admin/login");
+	  }
+  },[router]);
 
   const url = 'http://localhost:3000';;
 

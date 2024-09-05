@@ -20,7 +20,7 @@ const Dashboard = () => {
         fetchUserData();
       }
     }
-  }, []);
+  }, [router]);
 
   // 获取用户信息和订单
   const fetchUserData = async () => {

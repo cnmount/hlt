@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "../../styles/Login.module.css";
 
 
@@ -16,10 +16,13 @@ const Login = () => {
   // if (cookie.token === process.env.TOKEN) {
   //   router.push('/admin')
   // }
-  if (typeof window !== 'undefined') {
-     localStorage.getItem('admin') === 'true' ? router.push('/admin') : null
-     localStorage.getItem('user') != null ? router.push("/dashboard") : null
-  }
+  
+  useEffect(() => {
+	if (typeof window !== 'undefined') {
+		localStorage.getItem('admin') === 'true' ? router.push('/admin') : null
+		localStorage.getItem('user') != null ? router.push("/dashboard") : null
+	}
+  },[router]);
   
   const handleRegister = () => {
     router.push("/admin/register"); // 假设注册页面的路径是 /register
