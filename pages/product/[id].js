@@ -15,8 +15,6 @@ const Product = ({ pizza }) => {
   const [addToCart, setAddToCart] = useState(false);
   const [size, setSize] = useState("Small");
 
-  const url = 'http://localhost:3000';;
-
   const dispatch = useDispatch();
 
   const cart = useSelector((state) => state.cart);
@@ -155,7 +153,7 @@ const Product = ({ pizza }) => {
 };
 
 export async function getStaticProps({ params }) {
-  const url = 'http://localhost:3000';;
+  const url = process.env.NEXT_PUBLIC_API_URL;
   const res = await axios.get(`${url}/api/products/${params.id}`);
 
   return {
@@ -166,7 +164,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const url = 'http://localhost:3000';;
+  const url = process.env.NEXT_PUBLIC_API_URL;
 
   const res = await axios.get(`${url}/api/products`);
   const products = res.data.products
