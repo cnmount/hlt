@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic'
 
 const LeafletMapPage = dynamic(() => import('../../components/LeafletMapPage.js'), {
   ssr: false,
+  loading: () => <p>Loading Map...</p>, // Fallback during loading
   });
 
 const MapPage = () => {

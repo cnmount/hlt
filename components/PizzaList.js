@@ -46,7 +46,7 @@ const PizzaList = ({ pizzaList }) => {
       </div>
 
       <div className={styles.wrapper}>
-	    {filteredList.length > 0 ? (
+	    {filteredList && filteredList.length > 0 ? (
           filteredList.map((pizza) => <PizzaCard key={pizza._id} pizza={pizza} />)
         ) : 
 		(
