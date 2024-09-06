@@ -26,24 +26,5 @@
   "devDependencies": {
     "eslint": "8.6.0",
     "eslint-config-next": "12.0.7"
-  },
-  "serve": {
-      "executor": "@nx/next:server",
-      "defaultConfiguration": "development",
-      "options": {
-        "buildTarget": "myapp:build",
-        "dev": true
-      },
-      "configurations": {
-        "development": {
-          "buildTarget": "myapp:build:development",
-          "dev": true,
-          "hostname": "0.0.0.0"
-        },
-        "production": {
-          "buildTarget": "myapp:build:production",
-          "dev": false
-        }
-      }
-    }
+  }
 }

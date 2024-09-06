@@ -27,14 +27,21 @@ export default function Home({ pizzaList }) {
 }
 
 export async function getStaticProps() {
-  
-  const url = 'http://localhost:3000';
+  try {
+	  const url = process.env.NEXT_PUBLIC_API_URL;
+	  const res = await axios.get(`${url}/api/products`);
 
-  const res = await axios.get(`${url}/api/products`);
-
-  return {
-    props: {
-      pizzaList: res.data.products,
-    },
-  };
+	  return {
+		props: {
+		  pizzaList: res.data.products,
+		},
+	  };
+  } catch (error) {
+    console.error('Error fetching data:', error);
+	return {
+	  props: {
+	    products: [],
+	  },
+	};
+  }
 }
