@@ -52,9 +52,6 @@ const PizzaList = ({ pizzaList }) => {
 		(
           <p>No pizzas found</p>
 		)}
-        /*{filteredList.map((pizza) => (
-          <PizzaCard key={pizza._id} pizza={pizza} />
-        ))}*/
       </div>
     </div>
   );
