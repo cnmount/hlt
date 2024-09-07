@@ -3,7 +3,7 @@ import PizzaCard from "./PizzaCard";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-const PizzaList = ({ pizzaList }) => {
+const PizzaList = ({ pizzaList = [] }) => {
   const [searchText, setSearchText] = useState("");
   const [filteredList, setFilteredList] = useState(pizzaList);
 
