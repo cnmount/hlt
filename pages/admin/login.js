@@ -33,7 +33,7 @@ const Login = () => {
       // alert(process.env.LOGIN_URL)
       // alert(process.env.ADMIN_USERNAME)
       // await axios.post(`/api/login`, {
-      await axios.post('http://127.0.0.1:5000/api/auth/login', {
+      await axios.post('http://localhost:5000/api/auth/login', {
         username,
         password,
       });

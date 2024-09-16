@@ -8,19 +8,13 @@ from werkzeug.security import generate_password_hash,check_password_hash
 from botocore.exceptions import ClientError
 from boto3.dynamodb.conditions import Key, Attr
 import uuid
-from flask_jwt_extended import JWTManager, create_access_token, get_jwt_identity, jwt_required
-from models.user import User
-
 
 
 app = Flask(__name__)
 dyndb = boto3.resource('dynamodb', region_name='us-east-1')
 logging.basicConfig(level=logging.INFO)
-CORS(app, resources={r"/api/*": {"origins": "*"}}, supports_credentials=True, methods=['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'])
-CORS(app, resources={r"/user/profile": {"origins": "*", "methods": ["GET"]}})  # 明确允许 GET 方法
+CORS(app, resources={r"/api/*": {"origins": "http://localhost:3000"}}, supports_credentials=True, methods=['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'])
 user_table = dyndb.Table('user')
-app.config['JWT_SECRET_KEY'] = '010920'  
-jwt = JWTManager(app)
 
 @app.route('/api/auth/register', methods=['POST'])
 def register():
@@ -28,8 +22,7 @@ def register():
     print("Received data:", data) 
     username = data.get('username')  
     password = data.get('password')  
-    phone = data.get('phone') 
-    email = data.get('email')       
+    phone = data.get('phone')        
 
     if not username or not phone or not password:
         return jsonify({"message": "Missing required fields"}), 400
@@ -56,7 +49,6 @@ def register():
                 'id': user_id,
                 'username': username,
                 'phone': phone,
-                'email': email,
                 'password': hashed_password
             }
         )
@@ -79,9 +71,14 @@ def create_table():
                 }
             ],
             AttributeDefinitions=[
-                {'AttributeName': 'id', 'AttributeType': 'S'},
-                {'AttributeName': 'email', 'AttributeType': 'S'},
-                {'AttributeName': 'phone', 'AttributeType': 'S'}
+                {
+                    'AttributeName': 'id',
+                    'AttributeType': 'S'
+                },
+                {
+                    'AttributeName': 'phone',
+                    'AttributeType': 'S'
+                }
             ],
             ProvisionedThroughput={
                 'ReadCapacityUnits': 5,
@@ -90,17 +87,15 @@ def create_table():
             GlobalSecondaryIndexes=[
                 {
                     'IndexName': 'PhoneIndex',
-                    'KeySchema': [{'AttributeName': 'phone', 'KeyType': 'HASH'}],
-                    'Projection': {'ProjectionType': 'ALL'},
-                    'ProvisionedThroughput': {
-                        'ReadCapacityUnits': 5,
-                        'WriteCapacityUnits': 5
-                    }
-                },
-                {
-                    'IndexName': 'EmailIndex',
-                    'KeySchema': [{'AttributeName': 'email', 'KeyType': 'HASH'}],
-                    'Projection': {'ProjectionType': 'ALL'},
+                    'KeySchema': [
+                        {
+                            'AttributeName': 'phone',
+                            'KeyType': 'HASH'
+                        }
+                    ],
+                    'Projection': {
+                        'ProjectionType': 'ALL'
+                    },
                     'ProvisionedThroughput': {
                         'ReadCapacityUnits': 5,
                         'WriteCapacityUnits': 5
@@ -115,7 +110,6 @@ def create_table():
             print("Table already exists.")
         else:
             print(f"Unexpected error: {e}")
-
 
 def check_table():
     try:
@@ -156,9 +150,7 @@ def login():
     if user:
         if (check_password_hash(user['password'],password)):
             print(f"apy. Login successful.")
-            access_token = create_access_token(identity=user['id'])
-            return jsonify(access_token=access_token), 200
-            
+            return jsonify({"message": "Login successful."}), 200
         else:
             print(f"apy. Incorrect password.")
             return jsonify({"message": "Incorrect password."}), 401
@@ -166,26 +158,10 @@ def login():
         print(f"qpy. User does not exist.")
         return jsonify({"message": "User does not exist."}), 404
 
-@app.route('/user/profile', methods=['GET'])
-@jwt_required()
-def user_profile():
-    auth_header = request.headers.get('Authorization')
-    print("Received Authorization Header:", auth_header)
-    user_id = get_jwt_identity()
-    print("Decoded JWT Identity:", user_id)
-    if not user_id:
-        return jsonify({'message': 'Unauthorized: No user ID found in token'}), 401
 
-    user = User.get_user(user_id)
-    if user:
-        user_dict = user.to_dict()
-        print("USER", user_dict)
-        return jsonify(user_dict), 200
-    else:
-        return jsonify({'message': 'User not found'}), 404
 
 
 if __name__ == '__main__':
     if not check_table():
-     create_table()
-app.run(debug=True)
+        create_table()
+    app.run(debug=True)
