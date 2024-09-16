@@ -18,8 +18,8 @@ const PizzaList = ({ pizzaList = [] }) => {
   useEffect(() => {
     filteredPizzaList(searchText);
     // console.log(filteredList);
-	console.log('=====pizzaList=====')
-    console.log(pizzaList);
+	//console.log('=====pizzaList=====')
+    //console.log(pizzaList);
   }, [searchText, pizzaList]);
 
   return (
