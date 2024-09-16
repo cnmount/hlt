@@ -1,5 +1,5 @@
 # app.py
-import logging, boto3
+import boto3
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from botocore.exceptions import ClientError
@@ -15,7 +15,6 @@ from models.user import User
 
 app = Flask(__name__)
 dyndb = boto3.resource('dynamodb', region_name='us-east-1')
-logging.basicConfig(level=logging.INFO)
 CORS(app, resources={r"/api/*": {"origins": "*"}}, supports_credentials=True, methods=['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'])
 CORS(app, resources={r"/user/profile": {"origins": "*", "methods": ["GET"]}})  # 明确允许 GET 方法
 user_table = dyndb.Table('user')
@@ -148,7 +147,6 @@ def login():
     username = data.get('username')
     password = data.get('password')
     
-    logging.info(f"Received login attempt with username: {username} and password: {password}")
     print(f"Received login attempt with username: {username} and password: {password}")
     user = get_user(username)
     print('DB:', user['password'])
