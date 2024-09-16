@@ -18,15 +18,18 @@ const Register = () => {
       return;
     }
     try {
-      await axios.post("/api/register", {
+      // 获取当前时间戳
+      const currentTimestamp = Date.now().toString();
+      await axios.post("http://127.0.0.1:5000/api/auth/register", {
         username,
         password,
+        phone: currentTimestamp
       });
       setSuccess(true);
       setError("");
       // 注册成功后跳转到登录页面
       setTimeout(() => {
-        router.push("/login");
+        router.push("/admin/login");
       }, 2000);
     } catch (err) {
       setError("Registration failed. Please try again.");
