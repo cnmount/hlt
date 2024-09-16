@@ -7,13 +7,13 @@ import styles from "../styles/Home.module.css";
 // import AddProduct from '../components/AddProduct';
 // import {useRouter} from 'next/router';
 
-// 引入AWS SDK
+// import AWS SDK
 import AWS from 'aws-sdk';
 
-// 配置AWS SDK
+// config AWS SDK
 AWS.config.update({ region: 'ap-southeast-2' });
 
-// 独立方法：创建SNS Topic
+// create SNS Topic
 async function createSNSTopic(topicName) {
   const sns = new AWS.SNS({ apiVersion: '2010-03-31' });
 
@@ -21,10 +21,10 @@ async function createSNSTopic(topicName) {
     const createTopicParams = { Name: topicName };
     const data = await sns.createTopic(createTopicParams).promise();
     console.log(`SNS Topic created: ${data.TopicArn}`);
-    return data.TopicArn; // 返回Topic ARN
+    return data.TopicArn; // return Topic ARN
   } catch (err) {
     console.error('Error creating SNS Topic:', err);
-    throw err; // 抛出错误，方便上层函数处理
+    throw err;
   }
 }
 
@@ -46,14 +46,14 @@ export default function Home({ pizzaList }) {
     </div>
   );
 }
-// 独立方法：向Topic添加订阅
+// add subscript to Topic
 async function subscribeToTopic(topicArn, email) {
   const sns = new AWS.SNS({ apiVersion: '2010-03-31' });
 
   const subscribeParams = {
-    Protocol: 'email', // 使用电子邮件协议
+    Protocol: 'email', 
     TopicArn: topicArn,
-    Endpoint: email, // 订阅的电子邮件地址
+    Endpoint: email,
   };
 
   try {
@@ -66,7 +66,7 @@ async function subscribeToTopic(topicArn, email) {
   }
 }
 
-// 独立方法：发布消息到SNS Topic
+// release message to SNS Topic
 async function publishToSNSTopic(topicArn, message) {
   const sns = new AWS.SNS({ apiVersion: '2010-03-31' });
 
