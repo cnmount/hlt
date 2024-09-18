@@ -20,7 +20,8 @@ const Register = () => {
     try {
       // 获取当前时间戳
       const currentTimestamp = Date.now().toString();
-      await axios.post("http://127.0.0.1:5000/api/auth/register", {
+      await axios.post(`/api/register`, {
+      // await axios.post("http://127.0.0.1:5000/api/auth/register", {
         username,
         password,
         phone: currentTimestamp
@@ -32,7 +33,12 @@ const Register = () => {
         router.push("/admin/login");
       }, 2000);
     } catch (err) {
-      setError("Registration failed. Please try again.");
+      // 检查 err.response 是否存在，并显示服务器返回的错误消息
+      if (err.response && err.response.data && err.response.data.message) {
+        setError(err.response.data.message);  // 显示后端返回的错误信息
+      } else {
+        setError("Registration failed. Please try again.");  // 默认错误信息
+      }
     }
   };
 

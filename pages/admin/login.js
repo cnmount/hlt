@@ -32,8 +32,8 @@ const Login = () => {
     try {
       // alert(process.env.LOGIN_URL)
       // alert(process.env.ADMIN_USERNAME)
-      // await axios.post(`/api/login`, {
-      await axios.post('http://localhost:5000/api/auth/login', {
+      await axios.post(`/api/login`, {
+      // await axios.post('http://127.0.0.1:5000/api/auth/login', {
         username,
         password,
       });
@@ -46,7 +46,7 @@ const Login = () => {
       }
       
     } catch (err) {
-      alert(err)
+
       console.log(err)
       setError(true);
     }
@@ -55,7 +55,7 @@ const Login = () => {
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
-        <h1>Admin Dashboard</h1>
+        <h1>User  Dashboard</h1>
         <input
           placeholder="username"
           className={styles.input}
