@@ -3,7 +3,7 @@ import PizzaCard from "./PizzaCard";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-const PizzaList = ({ pizzaList = [] }) => {
+const PizzaList = ({ pizzaList }) => {
   const [searchText, setSearchText] = useState("");
   const [filteredList, setFilteredList] = useState(pizzaList);
 
@@ -18,9 +18,7 @@ const PizzaList = ({ pizzaList = [] }) => {
   useEffect(() => {
     filteredPizzaList(searchText);
     // console.log(filteredList);
-	//console.log('=====pizzaList=====')
-    //console.log(pizzaList);
-  }, [searchText, pizzaList]);
+  }, [searchText]);
 
   return (
     <div className={styles.container} id="pizza-list">
@@ -46,12 +44,9 @@ const PizzaList = ({ pizzaList = [] }) => {
       </div>
 
       <div className={styles.wrapper}>
-	    {filteredList && filteredList.length > 0 ? (
-          filteredList.map((pizza) => <PizzaCard key={pizza._id} pizza={pizza} />)
-        ) : 
-		(
-          <p>No pizzas found</p>
-		)}
+        {filteredList.map((pizza) => (
+          <PizzaCard key={pizza._id} pizza={pizza} />
+        ))}
       </div>
     </div>
   );
